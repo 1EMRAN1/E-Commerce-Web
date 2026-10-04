@@ -1,0 +1,7 @@
+import { ArrowRight, CheckCircle2, Globe2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Section } from '@/components/layout/Section'
+
+export function SourcingSection() {
+  return <Section><div className="grid gap-8 rounded-[1.25rem] border bg-white p-6 shadow-card md:grid-cols-[.8fr_1.2fr] md:p-10"><div className="flex min-h-64 items-center justify-center rounded-card bg-[radial-gradient(circle_at_top_right,rgb(245_158_11/.28),transparent_45%),linear-gradient(135deg,rgb(11_118_110),rgb(7_83_78))] text-white"><Globe2 size={100} strokeWidth={1} /><span className="sr-only">Global product sourcing</span></div><div className="self-center"><p className="text-sm font-bold uppercase tracking-wider text-brand">International sourcing</p><h2 className="mt-2 type-h2">Global products, made simple for Bangladesh</h2><p className="mt-3 leading-7 text-muted">We’re building a clearer way to discover and source products internationally—from product selection to final delivery.</p><ul className="mt-5 grid gap-3 text-sm sm:grid-cols-2">{['Clear landed-cost guidance', 'Supplier verification', 'Order progress updates', 'Local customer support'].map((item) => <li key={item} className="flex items-center gap-2"><CheckCircle2 size={17} className="text-brand" />{item}</li>)}</ul><Link to="/sourcing" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand">Learn how it works<ArrowRight size={16} /></Link></div></div></Section>
+}

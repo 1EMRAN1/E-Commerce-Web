@@ -1,0 +1,11 @@
+import { ArrowRight, BadgeCheck, Globe2, PackageCheck, SearchCheck } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Container } from '@/components/layout/Container'
+import { AppImage } from '@/components/ui/AppImage'
+import { useContent } from '@/features/content/ContentProvider'
+import { homeContent } from '@/content/home.content'
+
+export function HomeHero() {
+  const { content } = useContent(); const hero = content.hero
+  return <section className="overflow-hidden bg-[#e8f5f2]"><Container className="grid items-center gap-8 py-8 sm:py-10 lg:grid-cols-2 lg:py-12"><div><p className="mb-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-brand shadow-sm"><BadgeCheck size={15} />{hero.eyebrow}</p><h1 className="type-display max-w-xl">{hero.title} <span className="text-brand">{hero.highlight}</span></h1><p className="mt-4 max-w-xl text-base leading-7 text-muted sm:text-lg">{hero.description}</p><div className="mt-6 flex flex-wrap gap-3"><Link to={homeContent.hero.primaryButton.href} className="inline-flex min-h-12 items-center gap-2 rounded-control bg-brand px-6 text-sm font-semibold text-white hover:bg-brand-dark">{hero.primaryCta}<ArrowRight size={17} /></Link><Link to={homeContent.hero.secondaryButton.href} className="inline-flex min-h-12 items-center gap-2 rounded-control border border-brand/20 bg-white px-6 text-sm font-semibold text-brand-dark hover:border-brand"><Globe2 size={17} />{hero.secondaryCta}</Link></div><div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-muted"><span className="flex items-center gap-1.5"><PackageCheck size={15} className="text-brand" />Verified products</span><span className="flex items-center gap-1.5"><SearchCheck size={15} className="text-brand" />Transparent pricing</span></div></div><div className="relative hidden min-h-[340px] lg:block"><div className="absolute inset-0 rounded-[2rem] bg-brand/10" /><AppImage src={hero.image} alt={homeContent.hero.imageAlt} wrapperClassName="absolute inset-5 rounded-[1.5rem] shadow-lift" /><div className="absolute bottom-1 left-0 rounded-card bg-white p-4 shadow-lift"><p className="text-xs text-muted">Products ready to explore</p><p className="mt-1 text-2xl font-bold text-brand-dark">{content.products.length}+</p></div></div></Container></section>
+}

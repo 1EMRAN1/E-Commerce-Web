@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 11 118 110;
+  --color-primary-dark: 7 83 78;
+  --color-accent: 245 158 11;
+  --color-background: 247 248 248;
+  --color-surface: 255 255 255;
+  --color-text: 20 36 34;
+  --color-muted: 99 115 112;
+  --color-border: 222 229 227;
+  --color-success: 22 138 86;
+  --color-warning: 217 119 6;
+  --color-danger: 220 38 38;
+  --radius-card: 1rem;
+  --radius-control: .75rem;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / .04), 0 8px 24px rgb(15 23 42 / .04);
+  --shadow-lift: 0 16px 40px rgb(15 23 42 / .10);
+  --container-width: 1440px;
+}
+
+@layer base {
+  * { @apply border-line; }
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-canvas font-sans text-ink antialiased; }
+  button, a, input { @apply outline-none; }
+  :focus-visible { @apply ring-2 ring-brand ring-offset-2; }
+}
+
+@layer components {
+  .type-display { @apply text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl; }
+  .type-h1 { @apply text-3xl font-bold leading-tight tracking-tight lg:text-4xl; }
+  .type-h2 { @apply text-2xl font-bold leading-tight tracking-tight lg:text-3xl; }
+  .type-h3 { @apply text-lg font-semibold leading-snug lg:text-xl; }
+  .type-body { @apply text-base leading-relaxed; }
+  .type-small { @apply text-sm leading-relaxed; }
+  .type-caption { @apply text-xs font-medium leading-normal; }
+  .line-clamp-2 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+}
