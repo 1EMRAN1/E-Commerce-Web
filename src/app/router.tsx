@@ -17,4 +17,7 @@ export const router = createBrowserRouter([{
     { path: 'product/:slug', element: <Suspense fallback={<PageLoader />}><ProductDetailsPage /></Suspense> },
     { path: '*', element: <Suspense fallback={<PageLoader />}><PlaceholderPage /></Suspense> },
   ],
-}, { path: '/admin', element: <Suspense fallback={<PageLoader />}><ContentStudioPage /></Suspense> }])
+}, { path: '/admin', element: <Suspense fallback={<PageLoader />}><ContentStudioPage /></Suspense> }], {
+  // Vite supplies / locally and /E-Commerce-Web/ on GitHub Pages.
+  basename: import.meta.env.BASE_URL.replace(/\/$/, ''),
+})
